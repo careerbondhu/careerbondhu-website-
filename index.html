@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Bondhu — Get Shortlisted. Not Ignored.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #fdf8ff;
+    --bg2:       #fef9f0;
+    --dark:      #1e0a5e;
+    --purple:    #6d28d9;
+    --purple-l:  #a78bfa;
+    --pale:      #ede9fe;
+    --border:    #c4b5fd;
+    --gold:      #f59e0b;
+    --gold-l:    #fbbf24;
+    --cream:     #fef3c7;
+    --green:     #059669;
+    --green-l:   #d1fae5;
+    --white:     #ffffff;
+    --muted:     #6b5fa8;
+    --skin:      #f5c9a0;
+    --serif:     'Playfair Display', Georgia, serif;
+    --sans:      'DM Sans', sans-serif;
+    --mono:      'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── Noise texture overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(253,248,255,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196,181,253,0.3);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, #6d28d9, #5b21b6);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 14px; font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 18px; font-weight: 700;
+    color: var(--dark);
+  }
+
+  .nav-brand span { color: var(--purple); }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px; font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--purple); }
+
+  .nav-cta {
+    background: var(--purple);
+    color: #fff !important;
+    padding: 9px 20px;
+    border-radius: 24px;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+
+  .nav-cta:hover {
+    background: #5b21b6 !important;
+    transform: translateY(-1px);
+    color: #fff !important;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-bg-circle.c1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(237,233,254,0.6) 0%, transparent 70%);
+    top: -100px; right: -100px;
+  }
+
+  .hero-bg-circle.c2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(254,243,199,0.5) 0%, transparent 70%);
+    bottom: 0; left: -80px;
+  }
+
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    position: relative; z-index: 1;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--pale);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 6px 14px;
+    font-size: 12px; font-weight: 600;
+    color: var(--purple);
+    margin-bottom: 24px;
+    font-family: var(--mono);
+    letter-spacing: 0.5px;
+  }
+
+  .hero-badge-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.8); }
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+  }
+
+  h1 .line1 { color: var(--dark); display: block; }
+  h1 .line2 { color: var(--purple); display: block; font-style: italic; }
+  h1 .line3 { color: var(--dark); display: block; }
+  h1 .accent { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    font-weight: 400;
+    max-width: 460px;
+  }
+
+  .hero-actions {
+    display: flex; align-items: center; gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--purple);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 32px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 8px 24px rgba(109,40,217,0.3);
+  }
+
+  .btn-primary:hover {
+    background: #5b21b6;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(109,40,217,0.4);
+  }
+
+  .btn-primary .arrow {
+    width: 20px; height: 20px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    transition: transform 0.2s;
+  }
+
+  .btn-primary:hover .arrow { transform: translateX(3px); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--muted);
+    font-size: 14px; font-weight: 500;
+    text-decoration: none;
+    padding: 14px 20px;
+    transition: color 0.2s;
+  }
+
+  .btn-secondary:hover { color: var(--purple); }
+
+  .hero-trust {
+    display: flex; align-items: center; gap: 12px;
+    margin-top: 32px;
+  }
+
+  .trust-avatars {
+    display: flex;
+  }
+
+  .trust-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    margin-left: -8px;
+    font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+  }
+
+  .trust-avatar:first-child { margin-left: 0; }
+
+  .trust-text {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .trust-text strong {
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  /* ── HERO ILLUSTRATION ── */
+  .hero-visual {
+    position: relative;
+    display: flex; justify-content: center; align-items: center;
+  }
+
+  .phone-mockup {
+    width: 280px;
+    background: #1a0a3e;
+    border-radius: 36px;
+    padding: 16px;
+    box-shadow:
+      0 40px 80px rgba(109,40,217,0.25),
+      0 0 0 1px rgba(196,181,253,0.2);
+    position: relative;
+    z-index: 2;
+  }
+
+  .phone-screen {
+    background: #0f0c22;
+    border-radius: 24px;
+    overflow: hidden;
+    padding: 20px 16px;
+  }
+
+  .chat-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(167,139,250,0.15);
+  }
+
+  .chat-avatar {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, #6d28d9, #5b21b6);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 12px; font-weight: 700;
+    color: #fff;
+  }
+
+  .chat-name {
+    font-size: 13px; font-weight: 600;
+    color: #e9d5ff;
+    font-family: var(--sans);
+  }
+
+  .chat-status {
+    font-size: 10px; color: #4ade80;
+    font-family: var(--mono);
+  }
+
+  .chat-msg {
+    margin-bottom: 12px;
+    animation: fadeUp 0.4s ease forwards;
+    opacity: 0;
+  }
+
+  .chat-msg:nth-child(1) { animation-delay: 0.2s; }
+  .chat-msg:nth-child(2) { animation-delay: 0.6s; }
+  .chat-msg:nth-child(3) { animation-delay: 1.0s; }
+  .chat-msg:nth-child(4) { animation-delay: 1.4s; }
+  .chat-msg:nth-child(5) { animation-delay: 1.8s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg-user {
+    display: flex; justify-content: flex-end;
+  }
+
+  .msg-user .bubble {
+    background: var(--purple);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 16px 16px 4px 16px;
+    font-size: 11px; line-height: 1.5;
+    max-width: 85%;
+    font-family: var(--sans);
+  }
+
+  .msg-bot .bubble {
+    background: rgba(167,139,250,0.12);
+    border: 1px solid rgba(167,139,250,0.2);
+    color: #e9d5ff;
+    padding: 10px 12px;
+    border-radius: 16px 16px 16px 4px;
+    font-size: 11px; line-height: 1.6;
+    max-width: 90%;
+    font-family: var(--sans);
+  }
+
+  .score-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #6d28d9, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 18px; font-weight: 700;
+    font-family: var(--serif);
+  }
+
+  /* Floating cards */
+  .float-card {
+    position: absolute;
+    background: var(--white);
+    border-radius: 14px;
+    padding: 12px 16px;
+    box-shadow: 0 16px 40px rgba(109,40,217,0.15);
+    border: 1px solid rgba(196,181,253,0.4);
+    z-index: 3;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .float-card.card-score {
+    top: 30px; right: -60px;
+    animation-delay: 0s;
+  }
+
+  .float-card.card-match {
+    bottom: 60px; left: -60px;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  .fc-label {
+    font-size: 10px; color: var(--muted);
+    font-family: var(--mono); letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .fc-value {
+    font-size: 22px; font-weight: 700;
+    font-family: var(--serif);
+    color: var(--dark);
+    line-height: 1;
+  }
+
+  .fc-value.gold { color: var(--gold); }
+  .fc-value.green { color: var(--green); }
+
+  .fc-sub {
+    font-size: 10px; color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .section {
+    padding: 100px 48px;
+    position: relative;
+  }
+
+  .section-inner {
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 2px;
+    color: var(--purple);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+
+  .section-sub {
+    font-size: 16px; color: var(--muted);
+    max-width: 500px; line-height: 1.7;
+    margin-bottom: 60px;
+  }
+
+  /* Steps */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 36px; left: 10%;
+    width: 80%; height: 1px;
+    background: linear-gradient(90deg, var(--purple), var(--purple-l), var(--gold));
+    opacity: 0.3;
+  }
+
+  .step {
+    padding: 0 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .step-num {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-family: var(--serif);
+    font-size: 22px; font-weight: 900;
+    position: relative; z-index: 1;
+    transition: transform 0.2s;
+  }
+
+  .step:hover .step-num { transform: scale(1.1); }
+
+  .step-num.s1 { background: var(--pale); color: var(--purple); border: 2px solid var(--border); }
+  .step-num.s2 { background: var(--cream); color: var(--gold); border: 2px solid rgba(245,158,11,0.3); }
+  .step-num.s3 { background: var(--green-l); color: var(--green); border: 2px solid rgba(5,150,105,0.3); }
+  .step-num.s4 { background: linear-gradient(135deg, var(--pale), var(--cream)); color: var(--dark); border: 2px solid var(--border); }
+
+  .step-title {
+    font-size: 15px; font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── FEATURES ── */
+  .features-bg { background: var(--bg2); }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .feature-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid rgba(196,181,253,0.3);
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--card-accent, var(--purple));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(109,40,217,0.1);
+  }
+
+  .feature-card:hover::before { opacity: 1; }
+
+  .feature-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .feature-title {
+    font-size: 17px; font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 10px;
+    font-family: var(--serif);
+  }
+
+  .feature-desc {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── PRICING ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .price-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 36px 32px;
+    border: 1px solid rgba(196,181,253,0.3);
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .price-card.featured {
+    background: linear-gradient(135deg, #4c1d95, #3b0764);
+    border-color: transparent;
+    transform: scale(1.04);
+    box-shadow: 0 24px 56px rgba(109,40,217,0.3);
+  }
+
+  .price-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    font-family: var(--mono);
+    margin-bottom: 16px;
+    color: var(--muted);
+  }
+
+  .price-card.featured .price-label { color: rgba(196,181,253,0.7); }
+
+  .price-amount {
+    font-family: var(--serif);
+    font-size: 52px; font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 6px;
+    color: var(--dark);
+  }
+
+  .price-card.featured .price-amount { color: #fff; }
+
+  .price-currency {
+    font-size: 22px;
+    vertical-align: super;
+    font-weight: 400;
+  }
+
+  .price-per {
+    font-size: 13px; color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .price-card.featured .price-per { color: rgba(167,139,250,0.8); }
+
+  .price-features {
+    list-style: none;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .price-features li {
+    font-size: 14px;
+    padding: 7px 0;
+    display: flex; align-items: center; gap: 10px;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(196,181,253,0.15);
+  }
+
+  .price-card.featured .price-features li { color: rgba(196,181,253,0.85); border-color: rgba(167,139,250,0.15); }
+  .price-features li:last-child { border-bottom: none; }
+
+  .check { color: var(--green); font-size: 13px; }
+  .price-card.featured .check { color: var(--gold); }
+
+  .price-btn {
+    display: block; width: 100%;
+    padding: 13px;
+    border-radius: 32px;
+    font-size: 14px; font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    font-family: var(--sans);
+    border: none; cursor: pointer;
+  }
+
+  .price-btn.outline {
+    border: 1.5px solid var(--border);
+    color: var(--purple);
+    background: transparent;
+  }
+
+  .price-btn.outline:hover {
+    background: var(--pale);
+  }
+
+  .price-btn.solid {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+  .price-btn.solid:hover {
+    background: var(--gold-l);
+    transform: translateY(-1px);
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-bg { background: var(--pale); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .testimonial {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 28px;
+    border: 1px solid rgba(196,181,253,0.2);
+  }
+
+  .stars {
+    color: var(--gold);
+    font-size: 13px;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    color: var(--dark);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .author-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-size: 13px; font-weight: 600;
+    color: var(--dark);
+  }
+
+  .author-role {
+    font-size: 11px; color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: linear-gradient(135deg, #2e1065, #1a0a3e);
+    padding: 100px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(109,40,217,0.3), transparent 70%);
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .cta-section .section-title { color: #fff; }
+  .cta-section .section-sub { color: rgba(167,139,250,0.8); margin: 0 auto 40px; text-align: center; }
+
+  .cta-tagline {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 48px);
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .cta-tagline .gold { color: var(--gold); font-style: italic; }
+
+  .cta-buttons {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; flex-wrap: wrap;
+  }
+
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 15px 32px;
+    border-radius: 32px;
+    font-size: 15px; font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 8px 24px rgba(245,158,11,0.4);
+  }
+
+  .btn-gold:hover {
+    background: var(--gold-l);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(245,158,11,0.5);
+  }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: rgba(196,181,253,0.8);
+    padding: 15px 24px;
+    border-radius: 32px;
+    font-size: 14px; font-weight: 500;
+    text-decoration: none;
+    border: 1px solid rgba(167,139,250,0.3);
+    transition: all 0.2s;
+  }
+
+  .btn-ghost:hover {
+    background: rgba(167,139,250,0.1);
+    color: #e9d5ff;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0f0c22;
+    padding: 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 20px; font-weight: 700;
+    color: #e9d5ff;
+  }
+
+  .footer-brand span { color: var(--purple-l); }
+
+  .footer-tagline {
+    font-size: 12px; color: rgba(167,139,250,0.5);
+    font-family: var(--mono); margin-top: 4px;
+  }
+
+  .footer-links {
+    display: flex; gap: 24px; list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 13px; color: rgba(167,139,250,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--purple-l); }
+
+  .footer-copy {
+    font-size: 12px; color: rgba(167,139,250,0.4);
+    font-family: var(--mono);
+  }
+
+  /* ── ACCENT BAR ── */
+  .accent-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--purple), var(--purple-l), var(--gold));
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { order: -1; }
+    .section { padding: 70px 24px; }
+    .steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .steps::before { display: none; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .price-card.featured { transform: none; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Accent bar -->
+<div class="accent-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-icon">CB</div>
+    <span class="nav-brand">Career <span>Bondhu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="https://t.me/CareerBondhuBot" class="nav-cta">Try Free →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Human + AI Career Assistant
+      </div>
+      <h1>
+        <span class="line1">Get</span>
+        <span class="line2">Shortlisted.</span>
+        <span class="line3">Not <span class="accent">Ignored.</span></span>
+      </h1>
+      <p class="hero-sub">
+        তোমার CV-এর সৎ বন্ধু। AI দিয়ে ৩০ সেকেন্ডে জানো কেন HR তোমাকে skip করছে — আর কীভাবে ঠিক করবে।
+      </p>
+      <div class="hero-actions">
+        <a href="https://t.me/CareerBondhuBot" class="btn-primary">
+          Try Free on Telegram
+          <span class="arrow">→</span>
+        </a>
+        <a href="#how" class="btn-secondary">See how it works ↓</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-avatars">
+          <div class="trust-avatar" style="background:#6d28d9">R</div>
+          <div class="trust-avatar" style="background:#059669">F</div>
+          <div class="trust-avatar" style="background:#d97706">K</div>
+          <div class="trust-avatar" style="background:#dc2626">T</div>
+        </div>
+        <p class="trust-text"><strong>500+ students</strong> already reviewed their CV</p>
+      </div>
+    </div>
+
+    <!-- Phone mockup -->
+    <div class="hero-visual">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="chat-header">
+            <div class="chat-avatar">CB</div>
+            <div>
+              <div class="chat-name">Career Bondhu</div>
+              <div class="chat-status">● Online</div>
+            </div>
+          </div>
+          <div class="chat-msg msg-user">
+            <div class="bubble">/review — আমার CV দিলাম</div>
+          </div>
+          <div class="chat-msg msg-bot">
+            <div class="bubble">⏳ বিশ্লেষণ করছি...</div>
+          </div>
+          <div class="chat-msg msg-bot">
+            <div class="bubble">
+              <span class="score-num" style="font-size:16px;font-weight:700;color:#a78bfa">CV Score: 72/100</span><br><br>
+              ✅ <strong style="color:#e9d5ff">Strong Points</strong><br>
+              • Education section clear<br>
+              • Internship experience added<br><br>
+              ⚠️ <strong style="color:#fbbf24">Fix These</strong><br>
+              • No quantified achievements<br>
+              • Missing ATS keywords
+            </div>
+          </div>
+          <div class="chat-msg msg-bot">
+            <div class="bubble">
+              🔑 <strong style="color:#e9d5ff">Missing:</strong> Financial Analysis • Credit Risk • MS Excel Advanced
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Float cards -->
+      <div class="float-card card-score">
+        <div class="fc-label">ATS SCORE</div>
+        <div class="fc-value gold">68<span style="font-size:14px">/100</span></div>
+        <div class="fc-sub">+24 after fix</div>
+      </div>
+
+      <div class="float-card card-match">
+        <div class="fc-label">JOB MATCH</div>
+        <div class="fc-value green">82%</div>
+        <div class="fc-sub">BRAC Bank MTO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title">৪টা সহজ ধাপ</h2>
+      <p class="section-sub">Telegram-এ শুরু করো। কোনো signup লাগবে না।</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num s1">01</div>
+        <div class="step-title">Telegram খোলো</div>
+        <div class="step-desc">@CareerBondhuBot-কে /start পাঠাও। Account বানানোর দরকার নেই।</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num s2">02</div>
+        <div class="step-title">CV তথ্য দাও</div>
+        <div class="step-desc">/review দিয়ে তোমার CV details পাঠাও। Step by step guide করব।</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num s3">03</div>
+        <div class="step-title">AI বিশ্লেষণ করে</div>
+        <div class="step-desc">৩০ সেকেন্ডে score, সমস্যা, এবং missing keywords জানবে।</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num s4">04</div>
+        <div class="step-title">Shortlist হও</div>
+        <div class="step-desc">Full report-এ rewrite suggestion পেয়ে improved CV দিয়ে apply করো।</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features-bg" id="features">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Features</p>
+      <h2 class="section-title">তোমার CV-এর সব সমস্যা<br>এক জায়গায়</h2>
+      <p class="section-sub">HR যা দেখে, ATS যা খোঁজে — সব বলে দেব।</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal" style="--card-accent: #6d28d9">
+        <div class="feature-icon" style="background:#ede9fe">📊</div>
+        <div class="feature-title">CV Score & ATS Check</div>
+        <div class="feature-desc">তোমার CV কত পয়েন্ট পাবে এবং ATS software-এ pass হবে কিনা জানো। Most companies use ATS to filter CVs automatically.</div>
+      </div>
+      <div class="feature-card reveal" style="--card-accent: #f59e0b">
+        <div class="feature-icon" style="background:#fef3c7">🎯</div>
+        <div class="feature-title">Job Match Analysis</div>
+        <div class="feature-desc">Job description দাও — জানো তোমার CV কত percent match করছে। কোন keywords missing সেটাও বলব।</div>
+      </div>
+      <div class="feature-card reveal" style="--card-accent: #059669">
+        <div class="feature-icon" style="background:#d1fae5">✍️</div>
+        <div class="feature-title">Rewrite Suggestions</div>
+        <div class="feature-desc">Weak bullet points কীভাবে professional করতে হয় example সহ দেখাব। "Worked on projects" → "Managed 3 cross-functional projects worth ৳2M"</div>
+      </div>
+      <div class="feature-card reveal" style="--card-accent: #6d28d9">
+        <div class="feature-icon" style="background:#ede9fe">🤖</div>
+        <div class="feature-title">AI + Human Insight</div>
+        <div class="feature-desc">Claude AI-এর intelligence দিয়ে Bangladesh job market-এর specific advice। Banking, corporate, NGO — সব sector-এর জন্য।</div>
+      </div>
+      <div class="feature-card reveal" style="--card-accent: #f59e0b">
+        <div class="feature-icon" style="background:#fef3c7">💬</div>
+        <div class="feature-title">Conversation Memory</div>
+        <div class="feature-desc">Bot তোমার পুরো conversation মনে রাখে। আগে কী বলেছিলে জিজ্ঞেস করতে হবে না। একজন real career advisor-এর মতো।</div>
+      </div>
+      <div class="feature-card reveal" style="--card-accent: #059669">
+        <div class="feature-icon" style="background:#d1fae5">⚡</div>
+        <div class="feature-title">30-Second Review</div>
+        <div class="feature-desc">কোনো appointment, কোনো waiting নেই। Telegram-এ message পাঠাও, ৩০ সেকেন্ডে result পাও। ২৪/৭ available।</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-inner" style="text-align:center">
+    <div class="reveal">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">Simple, honest pricing</h2>
+      <p class="section-sub" style="margin:0 auto 60px">শুরু করো ফ্রিতে। Job-ready হলে ৳99 দাও।</p>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <div class="price-label">Free</div>
+        <div class="price-amount"><span class="price-currency">৳</span>0</div>
+        <div class="price-per">সবসময়ের জন্য ফ্রি</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> CV Score (0-100)</li>
+          <li><span class="check">✓</span> ১টি মূল সমস্যা</li>
+          <li><span class="check">✓</span> ATS compatibility check</li>
+          <li><span class="check">✓</span> Unlimited conversations</li>
+        </ul>
+        <a href="https://t.me/CareerBondhuBot" class="price-btn outline">Start Free →</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-label">Full Report</div>
+        <div class="price-amount"><span class="price-currency">৳</span>99</div>
+        <div class="price-per">per review</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> সব কিছু Free-তে আছে</li>
+          <li><span class="check">✓</span> Section-by-section scores</li>
+          <li><span class="check">✓</span> সব critical issues</li>
+          <li><span class="check">✓</span> Missing keywords list</li>
+          <li><span class="check">✓</span> Professional rewrite example</li>
+          <li><span class="check">✓</span> Job match percentage</li>
+        </ul>
+        <a href="https://t.me/CareerBondhuBot" class="price-btn solid">Get Full Report →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-bg">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; margin-bottom:48px">
+      <p class="section-label">Reviews</p>
+      <h2 class="section-title">শিক্ষার্থীরা কী বলছে</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"CV দিয়েছিলাম, জানতাম না কোথায় সমস্যা। Career Bondhu বলল ATS keywords নেই। Add করার পর BRAC Bank থেকে call এলো।"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#6d28d9">R</div>
+          <div>
+            <div class="author-name">Rafiq Ahmed</div>
+            <div class="author-role">BBA, Jagannath University</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"৩ মাস apply করেছিলাম, কোনো reply নেই। Career Bondhu দিয়ে CV fix করলাম। পরের সপ্তাহেই ২টা interview call।"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#059669">F</div>
+          <div>
+            <div class="author-name">Farhana Islam</div>
+            <div class="author-role">MBA, DU</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"মাত্র ৳99-এ যা পেয়েছি সেটা একজন professional career advisor-এর কাছে গেলে ৳2000+ লাগত। Absolutely worth it।"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#d97706">K</div>
+          <div>
+            <div class="author-name">Karim Hossain</div>
+            <div class="author-role">BBA, NSU</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner" style="position:relative;z-index:1">
+    <div class="reveal">
+      <div class="cta-tagline">তোমার CV কি সত্যিই<br><span class="gold">job-ready?</span></div>
+      <p class="section-sub">Free তে check করো। ৩০ সেকেন্ড লাগবে।</p>
+      <div class="cta-buttons">
+        <a href="https://t.me/CareerBondhuBot" class="btn-gold">
+          🤖 Start on Telegram — Free
+        </a>
+        <a href="#how" class="btn-ghost">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Career <span>Bondhu</span></div>
+    <div class="footer-tagline">Get Shortlisted. Not Ignored.</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="https://t.me/CareerBondhuBot">Telegram Bot</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Career Bondhu · Made with ❤️ for BD students</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20
+      ? '0 4px 20px rgba(109,40,217,0.1)'
+      : 'none';
+  });
+</script>
+</body>
+</html>
