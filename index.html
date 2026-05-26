@@ -1067,26 +1067,32 @@ async function sendMsg(text){
   }
 
   chatHistory.push({role:'user',content:msg});
-  showTyping();
+  const typing=showTyping();
+
   try{
-    const res=await fetch('https://vibeacademy.cloud/webhook/chat-message',{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        messages:chatHistory,
-        system:`তুমি Sanu — Career Bondhu-র AI Career Consultant। তুমি বাংলাদেশের students এবং fresh graduates-দের CV এবং career নিয়ে সাহায্য করো। এই সেক্টরে তোমার প্রায় ১০ বছরের অভিজ্ঞতা আছে। career নিয়ে কথা বলবা, গাইডলাইন দিবা। কখনও হতাশ করবা না ছোট করবা না।
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system:`তুমি Sanu — Career Bondhu-র AI Career Consultant। তুমি বাংলাদেশের students এবং fresh graduates-দের CV এবং career নিয়ে সাহায্য করো।
+
 তোমার পরিচয়: আমি Sanu, Career Bondhu থেকে বলছি — তোমার AI Career Consultant।
-তুমি বাংলা এবং ইংরেজি দুটো ভাষায় কথা বলতে পারো।
-Expertise: Bangladesh job market (Banking, NGO, MNC, Corporate), ATS optimization, CV writing।
+তুমি বাংলা এবং ইংরেজি দুটো ভাষায় কথা বলতে পারো। User যে ভাষায় কথা বলে তুমিও সেই ভাষায় উত্তর দাও।
+
+Expertise: Bangladesh job market (Banking, NGO, MNC, Corporate), ATS optimization, CV writing, job application strategy।
+
 Rules:
 - সংক্ষিপ্ত কিন্তু helpful উত্তর দাও (3-5 sentences)
 - CV upload বা detailed review চাইলে Telegram @CareerBondhuBot-এ redirect করো
 - ৳99 paid plan naturally mention করো যখন প্রাসঙ্গিক
 - নিজেকে সবসময় "Sanu" হিসেবে introduce করো
-- শেষে একটা relevant follow-up question করো`
+- শেষে একটা relevant follow-up question করো`,
+        messages:chatHistory
       })
     });
-    const reply=await res.text();
+    const data=await res.json();
     removeTyping();
     const reply=data.content?.[0]?.text||'দুঃখিত, একটু সমস্যা হয়েছে। আবার চেষ্টা করো।';
     chatHistory.push({role:'assistant',content:reply});
