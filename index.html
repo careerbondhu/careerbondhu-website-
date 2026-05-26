@@ -930,7 +930,7 @@ async function submitReview(){
     fd.append('job',document.getElementById('inp-job').value);
     fd.append('phone',document.getElementById('inp-phone').value);
     fd.append('cv',file);
-    await fetch('https://vibeacademy.cloud/webhook/cv-review',{method:'POST',body:fd});
+    await fetch('https://vibeacademy.cloud/webhook-test/cv-review',{method:'POST',body:fd});
     clearInterval(t);fill.style.width='100%';lbl.textContent='Done!';
     await new Promise(r=>setTimeout(r,500));
     document.getElementById('upload-form-wrap').style.display='none';
