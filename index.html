@@ -15,12 +15,14 @@
   --serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',sans-serif;--mono:'DM Mono',monospace;
 }
 html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--bg);color:var(--dark);overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+	body{font-family:var(--sans);background:var(--bg);color:var(--dark);overflow-x:hidden;}
+	body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(253,248,255,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,181,253,0.3);}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.nav-icon{width:44px;height:44px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:transparent;}
-.nav-icon img{width:44px;height:44px;object-fit:contain;display:block;}
+  .nav-icon{width:38px;height:38px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  .nav-icon img{width:100%;height:100%;object-fit:cover;}
 .nav-brand{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--dark);}
 .nav-brand span{color:var(--purple);}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
@@ -28,6 +30,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a:hover{color:var(--purple);}
 .nav-cta{background:var(--purple);color:#fff!important;padding:9px 20px;border-radius:24px;font-weight:600!important;transition:background 0.2s,transform 0.15s!important;}
 .nav-cta:hover{background:#5b21b6!important;transform:translateY(-1px);}
+
+/* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden;}
 .hero-bg-circle{position:absolute;border-radius:50%;pointer-events:none;}
 .hero-bg-circle.c1{width:600px;height:600px;background:radial-gradient(circle,rgba(237,233,254,0.6) 0%,transparent 70%);top:-100px;right:-100px;}
@@ -55,6 +59,8 @@ h1 .accent{color:var(--gold);}
 .trust-avatar:first-child{margin-left:0;}
 .trust-text{font-size:13px;color:var(--muted);}
 .trust-text strong{color:var(--dark);font-weight:600;}
+
+/* PHONE */
 .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;}
 .phone-mockup{width:280px;background:#1a0a3e;border-radius:36px;padding:16px;box-shadow:0 40px 80px rgba(109,40,217,0.25),0 0 0 1px rgba(196,181,253,0.2);position:relative;z-index:2;}
 .phone-screen{background:#0f0c22;border-radius:24px;overflow:hidden;padding:20px 16px;}
@@ -67,7 +73,8 @@ h1 .accent{color:var(--gold);}
 .chat-msg:nth-child(2){animation-delay:0.6s;}
 .chat-msg:nth-child(3){animation-delay:1.0s;}
 .chat-msg:nth-child(4){animation-delay:1.4s;}
-.chat-msg:nth-child(5){animation-delay:1.8s;}
+.chat-msg:nth-child(5) {animation-delay: 1.8s;}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 .msg-user{display:flex;justify-content:flex-end;}
 .msg-user .bubble{background:var(--purple);color:#fff;padding:8px 12px;border-radius:16px 16px 4px 16px;font-size:11px;line-height:1.5;max-width:85%;}
@@ -81,11 +88,15 @@ h1 .accent{color:var(--gold);}
 .fc-value.gold{color:var(--gold);}
 .fc-value.green{color:var(--green);}
 .fc-sub{font-size:10px;color:var(--muted);margin-top:2px;}
+
+/* SECTION */
 .section{padding:100px 48px;position:relative;}
 .section-inner{max-width:1200px;margin:0 auto;}
 .section-label{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--purple);text-transform:uppercase;margin-bottom:12px;}
 .section-title{font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;color:var(--dark);}
 .section-sub{font-size:16px;color:var(--muted);max-width:500px;line-height:1.7;margin-bottom:60px;}
+
+/* STEPS */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
 .steps::before{content:'';position:absolute;top:36px;left:10%;width:80%;height:1px;background:linear-gradient(90deg,var(--purple),var(--purple-l),var(--gold));opacity:0.3;}
 .step{padding:0 20px;text-align:center;position:relative;}
@@ -97,6 +108,8 @@ h1 .accent{color:var(--gold);}
 .step-num.s4{background:linear-gradient(135deg,var(--pale),var(--cream));color:var(--dark);border:2px solid var(--border);}
 .step-title{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px;}
 .step-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* FEATURES */
 .features-bg{background:var(--bg2);}
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
 .feature-card{background:var(--white);border-radius:20px;padding:32px;border:1px solid rgba(196,181,253,0.3);transition:all 0.2s;position:relative;overflow:hidden;}
@@ -106,6 +119,8 @@ h1 .accent{color:var(--gold);}
 .feature-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px;}
 .feature-title{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:10px;font-family:var(--serif);}
 .feature-desc{font-size:14px;color:var(--muted);line-height:1.7;}
+
+/* CV UPLOAD */
 .upload-section{background:linear-gradient(135deg,#f5f0ff,#fef9f0);}
 .upload-card{background:var(--white);border-radius:28px;border:1px solid rgba(196,181,253,0.4);box-shadow:0 24px 64px rgba(109,40,217,0.08);overflow:hidden;max-width:760px;margin:0 auto;}
 .upload-card-header{background:linear-gradient(135deg,#4c1d95,#3b0764);padding:28px 36px;display:flex;align-items:center;gap:16px;}
@@ -138,6 +153,8 @@ h1 .accent{color:var(--gold);}
 .success-title{font-family:var(--serif);font-size:22px;font-weight:900;color:var(--dark);margin-bottom:8px;}
 .success-sub{font-size:14px;color:var(--muted);line-height:1.6;}
 .upload-note{display:flex;align-items:flex-start;gap:10px;background:var(--cream);border-radius:12px;padding:12px 16px;margin-top:16px;font-size:12px;color:#92400e;line-height:1.5;}
+
+/* PRICING */
 .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:700px;margin:0 auto;}
 .price-card{background:var(--white);border-radius:24px;padding:36px 32px;border:1px solid rgba(196,181,253,0.3);text-align:center;transition:all 0.2s;}
 .price-card.featured{background:linear-gradient(135deg,#4c1d95,#3b0764);border-color:transparent;transform:scale(1.04);box-shadow:0 24px 56px rgba(109,40,217,0.3);}
@@ -159,6 +176,8 @@ h1 .accent{color:var(--gold);}
 .price-btn.outline:hover{background:var(--pale);}
 .price-btn.solid{background:var(--gold);color:var(--dark);}
 .price-btn.solid:hover{background:var(--gold-l);transform:translateY(-1px);}
+
+/* TESTIMONIALS */
 .testimonials-bg{background:var(--pale);}
 .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .testimonial{background:var(--white);border-radius:18px;padding:28px;border:1px solid rgba(196,181,253,0.2);}
@@ -168,8 +187,12 @@ h1 .accent{color:var(--gold);}
 .author-avatar{width:38px;height:38px;border-radius:50%;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;}
 .author-name{font-size:13px;font-weight:600;color:var(--dark);}
 .author-role{font-size:11px;color:var(--muted);font-family:var(--mono);}
+
+/* CTA */
 .cta-section{background:linear-gradient(135deg,#2e1065,#1a0a3e);padding:100px 48px;text-align:center;position:relative;overflow:hidden;}
 .cta-section::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(109,40,217,0.3),transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none;}
+.cta-section .section-title{color:#fff;}
+.cta-section .section-sub{color:rgba(167,139,250,0.8);margin:0 auto 40px;text-align:center;}
 .cta-tagline{font-family:var(--serif);font-size:clamp(28px,4vw,48px);color:#fff;font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:12px;}
 .cta-tagline .gold{color:var(--gold);font-style:italic;}
 .cta-buttons{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
@@ -177,12 +200,16 @@ h1 .accent{color:var(--gold);}
 .btn-gold:hover{background:var(--gold-l);transform:translateY(-2px);}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(196,181,253,0.8);padding:15px 24px;border-radius:32px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid rgba(167,139,250,0.3);transition:all 0.2s;}
 .btn-ghost:hover{background:rgba(167,139,250,0.1);color:#e9d5ff;}
+
+/* SOCIAL BAR */
 .social-bar{background:#0f0c22;padding:24px 48px;display:flex;align-items:center;justify-content:center;gap:20px;border-top:1px solid rgba(167,139,250,0.1);flex-wrap:wrap;}
 .social-link{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border-radius:24px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid;}
 .social-link.telegram{background:rgba(40,168,234,0.1);border-color:rgba(40,168,234,0.25);color:#29a8ea;}
 .social-link.telegram:hover{background:rgba(40,168,234,0.2);transform:translateY(-1px);}
 .social-link.facebook{background:rgba(24,119,242,0.1);border-color:rgba(24,119,242,0.25);color:#4893f5;}
 .social-link.facebook:hover{background:rgba(24,119,242,0.2);transform:translateY(-1px);}
+
+/* FOOTER */
 footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;border-top:1px solid rgba(167,139,250,0.08);}
 .footer-brand{font-family:var(--serif);font-size:20px;font-weight:700;color:#e9d5ff;}
 .footer-brand span{color:var(--purple-l);}
@@ -192,39 +219,93 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
 .footer-links a:hover{color:var(--purple-l);}
 .footer-copy{font-size:12px;color:rgba(167,139,250,0.4);font-family:var(--mono);}
 .accent-bar{height:4px;background:linear-gradient(90deg,var(--purple),var(--purple-l),var(--gold));}
+
+/* REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.chat-fab{position:fixed;bottom:28px;right:28px;z-index:999;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--purple),#5b21b6);border:none;cursor:pointer;box-shadow:0 8px 28px rgba(109,40,217,0.45);display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;color:#fff;font-size:26px;}
+
+/* ══════════════════════════════════════════
+   FLOATING CHAT WIDGET
+══════════════════════════════════════════ */
+/* FAB button */
+.chat-fab{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),#5b21b6);
+  border:none;cursor:pointer;
+  box-shadow:0 8px 28px rgba(109,40,217,0.45);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.2s,box-shadow 0.2s;
+  color:#fff;font-size:26px;
+}
 .chat-fab:hover{transform:scale(1.08);box-shadow:0 12px 36px rgba(109,40,217,0.55);}
-.chat-fab .fab-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;border-radius:50%;background:var(--gold);border:2px solid var(--white);font-size:9px;font-weight:700;color:#000;display:flex;align-items:center;justify-content:center;font-family:var(--mono);}
-.sanu-popup{position:fixed;bottom:100px;right:28px;z-index:997;display:flex;align-items:flex-end;gap:10px;opacity:0;pointer-events:none;transition:opacity 0.3s;}
-.sanu-popup.show{opacity:1;pointer-events:auto;animation:popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards;}
-.sanu-popup.hide{animation:popOut 0.3s ease forwards;}
-@keyframes popIn{from{opacity:0;transform:translateY(20px) scale(0.9);}to{opacity:1;transform:translateY(0) scale(1);}}
-@keyframes popOut{from{opacity:1;transform:translateY(0) scale(1);}to{opacity:0;transform:translateY(10px) scale(0.9);}}
-.sanu-popup-avatar{width:44px;height:44px;border-radius:50%;border:2px solid var(--white);box-shadow:0 4px 12px rgba(109,40,217,0.25);overflow:hidden;flex-shrink:0;}
-.sanu-popup-avatar img{width:100%;height:100%;object-fit:cover;}
-.sanu-popup-bubble{background:var(--white);border-radius:18px 18px 4px 18px;padding:14px 16px;box-shadow:0 8px 28px rgba(109,40,217,0.15);border:1px solid rgba(196,181,253,0.3);max-width:220px;position:relative;cursor:pointer;}
-.sanu-popup-name{font-size:11px;font-weight:700;color:var(--purple);font-family:var(--mono);margin-bottom:4px;}
-.sanu-popup-text{font-size:13px;color:var(--dark);line-height:1.5;font-weight:500;}
-.sanu-popup-close{position:absolute;top:-8px;right:-8px;width:20px;height:20px;border-radius:50%;background:#fff;border:1px solid rgba(196,181,253,0.4);color:var(--muted);font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.1);transition:all 0.15s;}
-.sanu-popup-close:hover{background:var(--pale);color:var(--purple);}
-.chat-widget{position:fixed;bottom:100px;right:28px;z-index:998;width:370px;background:var(--white);border-radius:24px;box-shadow:0 24px 64px rgba(109,40,217,0.18),0 0 0 1px rgba(196,181,253,0.3);overflow:hidden;display:none;flex-direction:column;max-height:560px;animation:widgetIn 0.25s cubic-bezier(0.34,1.56,0.64,1);}
+.chat-fab .fab-badge{
+  position:absolute;top:-2px;right:-2px;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--gold);border:2px solid var(--white);
+  font-size:9px;font-weight:700;color:#000;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);
+}
+
+/* Widget panel */
+.chat-widget{
+  position:fixed;bottom:100px;right:28px;z-index:998;
+  width:370px;
+  background:var(--white);
+  border-radius:24px;
+  box-shadow:0 24px 64px rgba(109,40,217,0.18),0 0 0 1px rgba(196,181,253,0.3);
+  overflow:hidden;
+  display:none;
+  flex-direction:column;
+  max-height:560px;
+  animation:widgetIn 0.25s cubic-bezier(0.34,1.56,0.64,1);
+}
 .chat-widget.open{display:flex;}
 @keyframes widgetIn{from{opacity:0;transform:scale(0.88) translateY(16px);}to{opacity:1;transform:scale(1) translateY(0);}}
-.w-header{background:linear-gradient(135deg,#4c1d95,#3b0764);padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
-.w-avatar{width:38px;height:38px;border-radius:50%;overflow:hidden;flex-shrink:0;}
-.w-avatar img{width:100%;height:100%;object-fit:cover;}
+
+/* Widget header */
+.w-header{
+  background:linear-gradient(135deg,#4c1d95,#3b0764);
+  padding:16px 20px;
+  display:flex;align-items:center;gap:12px;
+  flex-shrink:0;
+}
+.w-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:13px;font-weight:700;color:#fff;
+  flex-shrink:0;
+}
 .w-name{font-size:14px;font-weight:700;color:#fff;}
 .w-status{font-size:11px;color:rgba(196,181,253,0.8);font-family:var(--mono);display:flex;align-items:center;gap:5px;}
 .w-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:blink 2s infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.4;}}
 .w-close{margin-left:auto;background:rgba(255,255,255,0.1);border:none;color:rgba(255,255,255,0.7);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:background 0.15s;}
 .w-close:hover{background:rgba(255,255,255,0.2);color:#fff;}
-.w-picker{padding:20px;flex-shrink:0;border-bottom:1px solid rgba(196,181,253,0.15);}
+
+/* Channel picker */
+.w-picker{
+  padding:20px;
+  flex-shrink:0;
+  border-bottom:1px solid rgba(196,181,253,0.15);
+}
 .w-picker-label{font-size:12px;color:var(--muted);font-family:var(--mono);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase;}
 .w-channel-btns{display:flex;flex-direction:column;gap:10px;}
-.w-ch-btn{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:14px;border:1.5px solid;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:600;transition:all 0.18s;text-align:left;width:100%;background:none;}
+.w-ch-btn{
+  display:flex;align-items:center;gap:14px;
+  padding:13px 16px;
+  border-radius:14px;
+  border:1.5px solid;
+  cursor:pointer;
+  font-family:var(--sans);
+  font-size:13px;font-weight:600;
+  transition:all 0.18s;
+  text-align:left;
+  width:100%;
+  background:none;
+}
 .w-ch-btn.tg{border-color:rgba(40,168,234,0.3);color:#1a89cc;}
 .w-ch-btn.tg:hover{background:rgba(40,168,234,0.07);border-color:rgba(40,168,234,0.5);transform:translateX(3px);}
 .w-ch-btn.web{border-color:rgba(109,40,217,0.25);color:var(--purple);}
@@ -234,58 +315,133 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
 .w-ch-btn.web .w-ch-icon{background:rgba(109,40,217,0.08);}
 .w-ch-title{font-size:13px;font-weight:700;}
 .w-ch-sub{font-size:11px;opacity:0.7;font-family:var(--mono);margin-top:1px;}
-.w-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:#faf8ff;min-height:0;}
+
+/* Chat body */
+.w-body{
+  flex:1;overflow-y:auto;padding:16px;
+  display:flex;flex-direction:column;gap:10px;
+  background:#faf8ff;
+  min-height:0;
+}
 .w-body::-webkit-scrollbar{width:4px;}
 .w-body::-webkit-scrollbar-thumb{background:rgba(196,181,253,0.3);border-radius:2px;}
+
 .w-msg{display:flex;flex-direction:column;max-width:82%;}
 .w-msg.bot{align-self:flex-start;}
 .w-msg.user{align-self:flex-end;}
-.w-bubble{padding:10px 14px;border-radius:18px;font-size:13px;line-height:1.55;}
-.w-msg.bot .w-bubble{background:var(--white);border:1px solid rgba(196,181,253,0.25);color:var(--dark);border-radius:4px 18px 18px 18px;box-shadow:0 2px 8px rgba(109,40,217,0.05);}
-.w-msg.user .w-bubble{background:var(--purple);color:#fff;border-radius:18px 18px 4px 18px;}
+.w-bubble{
+  padding:10px 14px;border-radius:18px;
+  font-size:13px;line-height:1.55;
+}
+.w-msg.bot .w-bubble{
+  background:var(--white);
+  border:1px solid rgba(196,181,253,0.25);
+  color:var(--dark);
+  border-radius:4px 18px 18px 18px;
+  box-shadow:0 2px 8px rgba(109,40,217,0.05);
+}
+.w-msg.user .w-bubble{
+  background:var(--purple);
+  color:#fff;
+  border-radius:18px 18px 4px 18px;
+}
 .w-time{font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:4px;padding:0 4px;}
 .w-msg.user .w-time{text-align:right;}
+
+/* Typing indicator */
 .w-typing{display:flex;align-items:center;gap:4px;padding:12px 14px;background:var(--white);border:1px solid rgba(196,181,253,0.25);border-radius:4px 18px 18px 18px;width:fit-content;box-shadow:0 2px 8px rgba(109,40,217,0.05);}
 .w-typing span{width:7px;height:7px;border-radius:50%;background:var(--purple-l);animation:typing 1.2s infinite;}
 .w-typing span:nth-child(2){animation-delay:0.2s;}
 .w-typing span:nth-child(3){animation-delay:0.4s;}
 @keyframes typing{0%,60%,100%{transform:translateY(0);opacity:0.4;}30%{transform:translateY(-5px);opacity:1;}}
+
+/* Quick replies */
 .w-quick{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;}
-.w-qr{background:var(--pale);border:1px solid var(--border);color:var(--purple);border-radius:20px;padding:6px 13px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:all 0.15s;white-space:nowrap;}
+.w-qr{
+  background:var(--pale);border:1px solid var(--border);
+  color:var(--purple);border-radius:20px;
+  padding:6px 13px;font-size:12px;font-weight:600;
+  cursor:pointer;font-family:var(--sans);
+  transition:all 0.15s;white-space:nowrap;
+}
 .w-qr:hover{background:var(--border);transform:translateY(-1px);}
-.w-input-area{display:flex;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid rgba(196,181,253,0.2);background:var(--white);flex-shrink:0;}
-.w-input{flex:1;background:#faf8ff;border:1.5px solid rgba(196,181,253,0.3);border-radius:24px;padding:9px 16px;font-family:var(--sans);font-size:13px;color:var(--dark);outline:none;transition:border-color 0.2s;}
+
+/* Input area */
+.w-input-area{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 16px;
+  border-top:1px solid rgba(196,181,253,0.2);
+  background:var(--white);
+  flex-shrink:0;
+}
+.w-input{
+  flex:1;background:#faf8ff;border:1.5px solid rgba(196,181,253,0.3);
+  border-radius:24px;padding:9px 16px;
+  font-family:var(--sans);font-size:13px;color:var(--dark);outline:none;
+  transition:border-color 0.2s;
+}
 .w-input:focus{border-color:var(--purple);}
 .w-input::placeholder{color:#b0a8d0;}
-.w-send{width:36px;height:36px;border-radius:50%;background:var(--purple);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;flex-shrink:0;transition:all 0.15s;}
+.w-send{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--purple);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:15px;flex-shrink:0;
+  transition:all 0.15s;
+}
 .w-send:hover{background:#5b21b6;transform:scale(1.08);}
-.w-email-form{background:var(--pale);border:1px solid var(--border);border-radius:14px;padding:14px;margin-top:4px;}
-.w-email-form input{width:100%;background:var(--white);border:1.5px solid rgba(196,181,253,0.4);border-radius:10px;padding:9px 13px;font-family:var(--sans);font-size:13px;color:var(--dark);outline:none;margin-bottom:8px;transition:border-color 0.18s;}
+
+/* Email capture inside chat */
+.w-email-form{
+  background:var(--pale);border:1px solid var(--border);
+  border-radius:14px;padding:14px;margin-top:4px;
+}
+.w-email-form input{
+  width:100%;background:var(--white);border:1.5px solid rgba(196,181,253,0.4);
+  border-radius:10px;padding:9px 13px;font-family:var(--sans);font-size:13px;
+  color:var(--dark);outline:none;margin-bottom:8px;
+  transition:border-color 0.18s;
+}
 .w-email-form input:focus{border-color:var(--purple);}
-.w-email-form button{width:100%;padding:9px;background:var(--purple);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:700;font-family:var(--sans);cursor:pointer;transition:background 0.15s;}
+.w-email-form button{
+  width:100%;padding:9px;background:var(--purple);color:#fff;
+  border:none;border-radius:10px;font-size:13px;font-weight:700;
+  font-family:var(--sans);cursor:pointer;transition:background 0.15s;
+}
 .w-email-form button:hover{background:#5b21b6;}
+
+/* RESPONSIVE */
 @media(max-width:900px){
-  nav{padding:16px 24px;}.nav-links{display:none;}
-  .hero{padding:100px 24px 60px;}.hero-inner{grid-template-columns:1fr;gap:48px;}.hero-visual{order:-1;}
+  nav{padding:16px 24px;}
+  .nav-links{display:none;}
+  .hero{padding:100px 24px 60px;}
+  .hero-inner{grid-template-columns:1fr;gap:48px;}
+  .hero-visual{order:-1;}
   .section{padding:70px 24px;}
-  .steps{grid-template-columns:repeat(2,1fr);gap:32px;}.steps::before{display:none;}
+  .steps{grid-template-columns:repeat(2,1fr);gap:32px;}
+  .steps::before{display:none;}
   .features-grid{grid-template-columns:1fr;}
-  .pricing-grid{grid-template-columns:1fr;}.price-card.featured{transform:none;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .price-card.featured{transform:none;}
   .testimonials-grid{grid-template-columns:1fr;}
-  footer{flex-direction:column;text-align:center;padding:32px 24px;}.footer-links{justify-content:center;}
-  .form-row{grid-template-columns:1fr;}.upload-card-body{padding:24px;}
+  footer{flex-direction:column;text-align:center;padding:32px 24px;}
+  .footer-links{justify-content:center;}
+  .form-row{grid-template-columns:1fr;}
+  .upload-card-body{padding:24px;}
   .social-bar{padding:20px 24px;}
   .chat-widget{width:calc(100vw - 32px);right:16px;bottom:90px;}
   .chat-fab{right:16px;bottom:16px;}
-  .sanu-popup{right:16px;bottom:90px;}
 }
 </style>
 </head>
 <body>
+
 <div class="accent-bar"></div>
+
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <div class="nav-icon"><img src="https://i.imgur.com/tDI06lU.png" alt="CB" onerror="this.parentElement.style.background='linear-gradient(135deg,#6d28d9,#5b21b6)';this.parentElement.innerHTML='<span style=font-family:serif;font-size:14px;font-weight:700;color:#fff>CB</span>'"></div>
+    <div class="nav-icon"><img src="https://i.imgur.com/tDI06lU.png" alt="CB" onerror="this.parentElement.style.background='linear-gradient(135deg,#6d28d9,#5b21b6)';this.parentElement.innerHTML='<span style=\'font-family:serif;font-size:14px;font-weight:700;color:#fff\'>CB</span>'"></div>
     <span class="nav-brand">Career <span>Bondhu</span></span>
   </a>
   <ul class="nav-links">
@@ -296,12 +452,19 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
     <li><a href="https://t.me/CareerBondhuBot" class="nav-cta">Try Free →</a></li>
   </ul>
 </nav>
+
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-circle c1"></div><div class="hero-bg-circle c2"></div>
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-badge"><span class="hero-badge-dot"></span>Real-time Career Consultant</div>
-      <h1><span class="line1">Get</span><span class="line2">Shortlisted.</span><span class="line3">Not <span class="accent">Ignored.</span></span></h1>
+      <h1>
+        <span class="line1">Get</span>
+        <span class="line2">Shortlisted.</span>
+        <span class="line3">Not <span class="accent">Ignored.</span></span>
+      </h1>
       <p class="hero-sub">Your Corporate বন্ধু। মাত্র ৩০ সেকেন্ডে Real-time CV Review এর মাধ্যমে জানো কেন HR তোমাকে skip করছে — আর কীভাবে ঠিক করবে।</p>
       <div class="hero-actions">
         <a href="#cv-review" class="btn-primary">Try Free CV Review <span class="arrow">→</span></a>
@@ -333,17 +496,24 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
               ⚠️ <strong style="color:#fbbf24">Fix These</strong><br>• No quantified achievements<br>• Missing ATS keywords
             </div>
           </div>
-          <div class="chat-msg msg-bot"><div class="bubble">🔑 <strong style="color:#e9d5ff">Missing:</strong> Financial Analysis • Credit Risk • MS Excel</div></div>
-        </div>
-      </div>
+          <div class="chat-msg msg-bot">
+	    <div class="bubble">🔑 <strong style="color:#e9d5ff">Missing:</strong> Financial Analysis • Credit Risk • MS Excel</div></div>
+          </div>
+	  </div>
       <div class="float-card card-score"><div class="fc-label">ATS SCORE</div><div class="fc-value gold">68<span style="font-size:14px">/100</span></div><div class="fc-sub">+24 after fix</div></div>
       <div class="float-card card-match"><div class="fc-label">JOB MATCH</div><div class="fc-value green">82%</div><div class="fc-sub">BRAC Bank MTO</div></div>
     </div>
   </div>
 </section>
+
+<!-- HOW IT WORKS -->
 <section class="section" id="how">
   <div class="section-inner">
-    <div class="reveal"><p class="section-label">How it works</p><h2 class="section-title">৪টা সহজ ধাপ</h2><p class="section-sub">Telegram-এ শুরু করো। কোনো signup লাগবে না।</p></div>
+    <div class="reveal">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title">৪টা সহজ ধাপ</h2>
+      <p class="section-sub">Telegram-এ শুরু করো। কোনো signup লাগবে না।</p>
+    </div>
     <div class="steps">
       <div class="step reveal"><div class="step-num s1">01</div><div class="step-title">Telegram খোলো</div><div class="step-desc">@CareerBondhuBot-কে /start পাঠাও।</div></div>
       <div class="step reveal"><div class="step-num s2">02</div><div class="step-title">CV তথ্য দাও</div><div class="step-desc">/review দিয়ে তোমার CV details পাঠাও।</div></div>
@@ -352,35 +522,46 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
     </div>
   </div>
 </section>
+
+<!-- FEATURES -->
 <section class="section features-bg" id="features">
   <div class="section-inner">
-    <div class="reveal"><p class="section-label">Features</p><h2 class="section-title">তোমার CV-এর সব সমস্যা<br>এক জায়গায়</h2><p class="section-sub">HR যা দেখে, যা খোঁজে — সব বলে দেব।</p></div>
+    <div class="reveal">
+      <p class="section-label">Features</p>
+      <h2 class="section-title">তোমার CV-এর সব সমস্যা<br>এক জায়গায়</h2>
+      <p class="section-sub">HR যা দেখে, যা খোঁজে — সব বলে দেব।</p>
+    </div>
     <div class="features-grid">
       <div class="feature-card reveal" style="--card-accent:#6d28d9"><div class="feature-icon" style="background:#ede9fe">🔍</div><div class="feature-title">CV Score & ATS Check</div><div class="feature-desc">তোমার CV কত পয়েন্ট পাবে এবং ATS software-এ pass হবে কিনা জানো।</div></div>
       <div class="feature-card reveal" style="--card-accent:#f59e0b"><div class="feature-icon" style="background:#fef3c7">🎯</div><div class="feature-title">Job Match Analysis</div><div class="feature-desc">Job description দাও — জানো কত percent match করছে। কোন keywords missing সেটাও বলব।</div></div>
       <div class="feature-card reveal" style="--card-accent:#059669"><div class="feature-icon" style="background:#d1fae5">✍️</div><div class="feature-title">Rewrite Suggestions</div><div class="feature-desc">Weak bullet points কীভাবে professional করতে হয় example সহ দেখাব।</div></div>
-      <div class="feature-card reveal" style="--card-accent:#6d28d9"><div class="feature-icon" style="background:#ede9fe">🤝</div><div class="feature-title">AI + Human Insight</div><div class="feature-desc">Bangladesh job market based Career Consultant। Banking, NGO, MNC — সব sector।</div></div>
+      <div class="feature-card reveal" style="--card-accent:#6d28d9"><div class="feature-icon" style="background:#ede9fe">🤝</div><div class="feature-title">Real-time Market Insight</div><div class="feature-desc">Bangladesh job market based Career Consultant। Banking, NGO, MNC — সব sector।</div></div>
       <div class="feature-card reveal" style="--card-accent:#f59e0b"><div class="feature-icon" style="background:#fef3c7">💬</div><div class="feature-title">Career Consultancy</div><div class="feature-desc">Career নিয়ে কোন পরামর্শ বা জিজ্ঞাসা থাকলে করতে পারো, একজন real career advisor-এর মতো সবসময় Guide করবে।</div></div>
       <div class="feature-card reveal" style="--card-accent:#059669"><div class="feature-icon" style="background:#d1fae5">⚡</div><div class="feature-title">30-Second Review</div><div class="feature-desc">২৪/৭ available। Telegram-এ message পাঠাও, ৩০ সেকেন্ডে Real-time result পাও।</div></div>
     </div>
   </div>
 </section>
+
+<!-- CV UPLOAD -->
 <section class="section upload-section" id="cv-review">
   <div class="section-inner">
-    <div class="reveal" style="text-align:center;margin-bottom:48px">
+          <div class="reveal" style="text-align:center;margin-bottom:48px">
       <p class="section-label">Free CV Review</p>
       <h2 class="section-title">এখনই CV জমা দাও</h2>
       <p class="section-sub" style="margin:0 auto">CV upload করো, email দাও — detailed review সরাসরি inbox-এ পাবে।</p>
       <div style="margin-top:20px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;">
         <span style="font-size:13px;color:var(--muted);font-family:var(--mono)">Telegram আছে?</span>
-        <a href="https://t.me/CareerBondhuBot" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#29a8ea;color:#fff;padding:10px 20px;border-radius:24px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(41,168,234,0.35);" onmouseover="this.style.background='#1a89cc'" onmouseout="this.style.background='#29a8ea'">
+        <a href="https://t.me/CareerBondhuBot" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#29a8ea;color:#fff;padding:10px 20px;border-radius:24px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(41,168,234,0.35);" onmouseover="this.style.background='#1a89cc';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#29a8ea';this.style.transform='none'">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.012 9.47c-.148.658-.537.818-1.084.508l-3-2.21-1.448 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.34 14.668l-2.948-.924c-.64-.203-.654-.64.136-.948l11.5-4.432c.533-.194 1.001.13.534.884z"/></svg>
           Instant Review নাও Telegram-এ →
         </a>
       </div>
     </div>
     <div class="upload-card reveal">
-      <div class="upload-card-header"><div class="upload-card-icon">📋</div><div><div class="upload-card-title">CV Review Request</div><div class="upload-card-sub">Free · 24-48 hour turnaround</div></div></div>
+      <div class="upload-card-header">
+        <div class="upload-card-icon">📋</div>
+        <div><div class="upload-card-title">CV Review Request</div><div class="upload-card-sub">Free · 24-48 hour turnaround</div></div>
+      </div>
       <div class="upload-card-body">
         <div id="upload-form-wrap">
           <div class="form-row">
@@ -401,26 +582,37 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
               <div class="drop-file-name" id="file-name-display"></div>
             </div>
           </div>
-          <div class="upload-progress" id="upload-progress"><div class="progress-label" id="progress-label">Uploading...</div><div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-fill"></div></div></div>
-          <button class="submit-btn" id="submit-btn" onclick="submitCVReview()"><span>📧</span> Review Request পাঠাও</button>
-          <div class="upload-note"><span>🔒</span><span>তোমার CV এবং personal info সম্পূর্ণ confidential। শুধু review-এর জন্য ব্যবহার হবে।</span></div>
+          <div class="upload-progress" id="upload-progress">
+            <div class="progress-label" id="progress-label">Uploading...</div>
+            <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-fill"></div></div>
+          </div>
+          <button class="submit-btn" id="submit-btn" onclick="submitReview()"><span>📧</span> Review Request পাঠাও</button>
+          <div class="upload-note"><span>🔒</span><span>তোমার CV এবং personal info সম্পূর্ণ confidential। শুধু review-এর জন্য ব্যবহার হবে, কোথাও share করা হবে না।</span></div>
         </div>
         <div class="upload-success" id="upload-success">
           <div class="success-icon">✅</div>
           <div class="success-title">Request পাঠানো হয়েছে!</div>
-          <p class="success-sub">ধন্যবাদ! <strong style="color:var(--purple)">24-48 ঘণ্টার মধ্যে</strong> detailed report তোমার email-এ পাঠানো হবে।<br><br>এর মধ্যে Telegram-এ quick analysis পেতে পারো:</p>
+          <p class="success-sub">ধন্যবাদ! তোমার CV review request পাওয়া গেছে।<br><strong style="color:var(--purple)">24-48 ঘণ্টার মধ্যে</strong> detailed report তোমার email-এ পাঠানো হবে।<br><br>এর মধ্যে Telegram-এ quick analysis পেতে পারো:</p>
           <a href="https://t.me/CareerBondhuBot" class="btn-primary" style="margin:16px auto 0;display:inline-flex">Telegram-এ Chat করো <span class="arrow">→</span></a>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- PRICING -->
 <section class="section" id="pricing">
   <div class="section-inner" style="text-align:center">
-    <div class="reveal"><p class="section-label">Pricing</p><h2 class="section-title">Simple, honest pricing</h2><p class="section-sub" style="margin:0 auto 60px">শুরু করো ফ্রিতে। Job-ready হলে ৳99 দাও।</p></div>
+    <div class="reveal">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">Simple, honest pricing</h2>
+      <p class="section-sub" style="margin:0 auto 60px">শুরু করো ফ্রিতে। Job-ready হলে ৳99 দাও।</p>
+    </div>
     <div class="pricing-grid reveal">
       <div class="price-card">
-        <div class="price-label">Free</div><div class="price-amount"><span class="price-currency">৳</span>0</div><div class="price-per">সবসময়ের জন্য ফ্রি</div>
+        <div class="price-label">Free</div>
+        <div class="price-amount"><span class="price-currency">৳</span>0</div>
+        <div class="price-per">সবসময়ের জন্য ফ্রি</div>
         <ul class="price-features">
           <li><span class="check">✓</span> CV Score (0-100)</li>
           <li><span class="check">✓</span> ৩ টি মূল সমস্যা</li>
@@ -433,7 +625,9 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
         <a href="https://t.me/CareerBondhuBot" class="price-btn outline">Start Free →</a>
       </div>
       <div class="price-card featured">
-        <div class="price-label">Full Report</div><div class="price-amount"><span class="price-currency">৳</span>99</div><div class="price-per">per review</div>
+        <div class="price-label">Full Report</div>
+        <div class="price-amount"><span class="price-currency">৳</span>99</div>
+        <div class="price-per">per review</div>
         <ul class="price-features">
           <li><span class="check">✓</span> ATS Friendly Professional CV</li>
           <li><span class="check">✓</span> Section-by-section scores</li>
@@ -447,9 +641,14 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
     </div>
   </div>
 </section>
+
+<!-- TESTIMONIALS -->
 <section class="section testimonials-bg">
   <div class="section-inner">
-    <div class="reveal" style="text-align:center;margin-bottom:48px"><p class="section-label">Reviews</p><h2 class="section-title">শিক্ষার্থীরা কী বলছে</h2></div>
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <p class="section-label">Reviews</p>
+      <h2 class="section-title">শিক্ষার্থীরা কী বলছে</h2>
+    </div>
     <div class="testimonials-grid">
       <div class="testimonial reveal"><div class="stars">★★★★★</div><p class="testimonial-text">"CV দিয়েছিলাম, জানতাম না কোথায় সমস্যা। Career Bondhu বলল ATS keywords নেই। Add করার পর BRAC Bank থেকে call এলো।"</p><div class="testimonial-author"><div class="author-avatar" style="background:#6d28d9">R</div><div><div class="author-name">Rafiq Ahmed</div><div class="author-role">BBA, Jagannath University</div></div></div></div>
       <div class="testimonial reveal"><div class="stars">★★★★★</div><p class="testimonial-text">"৩ মাস apply করেছিলাম, কোনো reply নেই। Career Bondhu দিয়ে CV fix করলাম। পরের সপ্তাহেই ২টা interview call।"</p><div class="testimonial-author"><div class="author-avatar" style="background:#059669">F</div><div><div class="author-name">Farhana Islam</div><div class="author-role">MBA, DU</div></div></div></div>
@@ -457,18 +656,22 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
     </div>
   </div>
 </section>
+
+<!-- CTA -->
 <section class="cta-section">
   <div class="section-inner" style="position:relative;z-index:1">
     <div class="reveal">
       <div class="cta-tagline">তোমার CV কি সত্যিই<br><span class="gold">job-ready?</span></div>
-      <p style="color:rgba(167,139,250,0.8);font-size:16px;margin:12px auto 32px;max-width:400px">Free তে check করো। ৩০ সেকেন্ড লাগবে।</p>
+      <p class="section-sub">Free তে check করো। ৩০ সেকেন্ড লাগবে।</p>
       <div class="cta-buttons">
-        <a href="https://t.me/CareerBondhuBot" class="btn-gold">🤖 Start on Telegram — Free</a>
+        <a href="https://t.me/CareerBondhuBot" class="btn-gold"> Start on Telegram — Free</a>
         <a href="#cv-review" class="btn-ghost">📧 Email-এ Review নাও →</a>
       </div>
     </div>
   </div>
 </section>
+
+<!-- REVIEW SECTION -->
 <section class="section" id="leave-review" style="background:var(--bg2)">
   <div class="section-inner">
     <div class="reveal" style="text-align:center;margin-bottom:48px">
@@ -477,21 +680,32 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
       <p class="section-sub" style="margin:0 auto">Career Bondhu কি তোমাকে সাহায্য করেছে? অন্যদের জানাও।</p>
     </div>
     <div style="max-width:680px;margin:0 auto">
+      <!-- Review form -->
       <div class="upload-card reveal" id="review-form-card">
-        <div class="upload-card-header"><div class="upload-card-icon">⭐</div><div><div class="upload-card-title">Review দাও</div><div class="upload-card-sub">তোমার মতামত আমাদের কাছে গুরুত্বপূর্ণ</div></div></div>
+        <div class="upload-card-header">
+          <div class="upload-card-icon">⭐</div>
+          <div><div class="upload-card-title">Review দাও</div><div class="upload-card-sub">তোমার মতামত আমাদের কাছে গুরুত্বপূর্ণ</div></div>
+        </div>
         <div class="upload-card-body">
           <div class="form-row">
-            <div class="form-group"><label class="form-label">তোমার নাম *</label><input class="form-input" id="rv-name" type="text" placeholder="যেমন: Rafiq Ahmed"></div>
-            <div class="form-group"><label class="form-label">University / Institution</label><input class="form-input" id="rv-inst" type="text" placeholder="যেমন: DU, NSU, JU..."></div>
+            <div class="form-group">
+              <label class="form-label">তোমার নাম *</label>
+              <input class="form-input" id="rv-name" type="text" placeholder="যেমন: Rafiq Ahmed">
+            </div>
+            <div class="form-group">
+              <label class="form-label">University / Institution</label>
+              <input class="form-input" id="rv-inst" type="text" placeholder="যেমন: DU, NSU, JU...">
+            </div>
           </div>
+          <!-- Star rating -->
           <div class="form-group" style="margin-bottom:16px">
             <label class="form-label">Rating *</label>
             <div id="star-rating" style="display:flex;gap:8px;margin-top:6px">
-              <span class="star" data-v="1" onclick="setRating(1)" style="font-size:28px;cursor:pointer;color:#d1d5db;transition:all 0.15s">★</span>
-              <span class="star" data-v="2" onclick="setRating(2)" style="font-size:28px;cursor:pointer;color:#d1d5db;transition:all 0.15s">★</span>
-              <span class="star" data-v="3" onclick="setRating(3)" style="font-size:28px;cursor:pointer;color:#d1d5db;transition:all 0.15s">★</span>
-              <span class="star" data-v="4" onclick="setRating(4)" style="font-size:28px;cursor:pointer;color:#d1d5db;transition:all 0.15s">★</span>
-              <span class="star" data-v="5" onclick="setRating(5)" style="font-size:28px;cursor:pointer;color:#d1d5db;transition:all 0.15s">★</span>
+              <span class="star" data-v="1" onclick="setRating(1)" style="font-size:28px;cursor:pointer;color:#d1d5db;transition:color 0.15s">★</span>
+              <span class="star" data-v="2" onclick="setRating(2)" style="font-size:28px;cursor:pointer;color:#d1d5db;transition:color 0.15s">★</span>
+              <span class="star" data-v="3" onclick="setRating(3)" style="font-size:28px;cursor:pointer;color:#d1d5db;transition:color 0.15s">★</span>
+              <span class="star" data-v="4" onclick="setRating(4)" style="font-size:28px;cursor:pointer;color:#d1d5db;transition:color 0.15s">★</span>
+              <span class="star" data-v="5" onclick="setRating(5)" style="font-size:28px;cursor:pointer;color:#d1d5db;transition:color 0.15s">★</span>
             </div>
           </div>
           <div class="form-group" style="margin-bottom:20px">
@@ -501,15 +715,21 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
           <button class="submit-btn" onclick="submitReview_rv()"><span>⭐</span> Review জমা দাও</button>
         </div>
       </div>
+
+      <!-- Success state -->
       <div id="review-success" style="display:none;text-align:center;padding:40px 20px">
         <div style="font-size:48px;margin-bottom:12px">🙏</div>
         <div style="font-family:var(--serif);font-size:22px;font-weight:900;color:var(--dark);margin-bottom:8px">ধন্যবাদ!</div>
         <p style="font-size:14px;color:var(--muted);line-height:1.6">তোমার review পেয়েছি। এটা অন্যদের সাহায্য করবে।</p>
       </div>
+
+      <!-- Submitted reviews display -->
       <div id="reviews-display" style="margin-top:36px"></div>
     </div>
   </div>
 </section>
+
+<!-- SOCIAL BAR -->
 <div class="social-bar">
   <span style="font-size:13px;color:rgba(167,139,250,0.5);font-family:var(--mono)">Follow us:</span>
   <a href="https://t.me/CareerBondhuBot" class="social-link telegram" target="_blank">
@@ -521,53 +741,66 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
     Facebook Page
   </a>
 </div>
+
+<!-- FOOTER -->
 <footer>
   <div><div class="footer-brand">Career <span>Bondhu</span></div><div class="footer-tagline">Get Shortlisted. Not Ignored.</div></div>
   <ul class="footer-links">
-    <li><a href="#how">How it works</a></li><li><a href="#pricing">Pricing</a></li>
-    <li><a href="#cv-review">Free Review</a></li><li><a href="https://t.me/CareerBondhuBot">Telegram Bot</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#cv-review">Free Review</a></li>
+    <li><a href="https://t.me/CareerBondhuBot">Telegram Bot</a></li>
   </ul>
   <div class="footer-copy">© 2025 Career Bondhu · Made with ❤️ for BD students</div>
 </footer>
 
-<!-- SANU POPUP -->
-<div class="sanu-popup" id="sanu-popup">
-  <div class="sanu-popup-avatar"><img src="https://i.imgur.com/N4hAdiJ.png" alt="Sanu"></div>
-  <div class="sanu-popup-bubble" onclick="openFromPopup()">
-    <div class="sanu-popup-close" onclick="closePopup(event)">✕</div>
-    <div class="sanu-popup-name">👋 Sanu — Career Bondhu</div>
-    <div class="sanu-popup-text">Hi! কোনো জিজ্ঞাসা থাকলে করতে পারো, আমি সাহায্য করতে এসেছি! 😊</div>
-  </div>
-</div>
-
-<!-- FAB -->
-<button class="chat-fab" id="chat-fab" onclick="toggleWidget()">
+<!-- ══════════════════════════════════════════
+     FLOATING CHAT BUTTON + WIDGET
+══════════════════════════════════════════ -->
+<button class="chat-fab" id="chat-fab" onclick="toggleWidget()" title="Chat with us">
   <span id="fab-icon">💬</span>
-  <span class="fab-badge" id="fab-badge">1</span>
+  <span class="fab-badge">1</span>
 </button>
 
-<!-- CHAT WIDGET -->
 <div class="chat-widget" id="chat-widget">
+  <!-- Header -->
   <div class="w-header">
-    <div class="w-avatar"><img src="https://i.imgur.com/N4hAdiJ.png" alt="Sanu"></div>
-    <div><div class="w-name">Sanu</div><div class="w-status"><span class="w-dot"></span> Career Bondhu থেকে বলছি · Online</div></div>
+    <div class="w-avatar">
+          <img src="https://i.imgur.com/N4hAdiJ.png" alt="S" style="width:100%;height:100%;object-fit:cover;border-radius:50%">
+        </div>
+        <div>
+          <div class="w-name">Sanu</div>
+          <div class="w-status"><span class="w-dot"></span> Career Bondhu থেকে বলছি · Online</div>
+        </div>
     <button class="w-close" onclick="toggleWidget()">✕</button>
   </div>
+
+  <!-- Channel picker (shown first) -->
   <div class="w-picker" id="w-picker">
     <div class="w-picker-label">কীভাবে chat করতে চাও?</div>
     <div class="w-channel-btns">
       <button class="w-ch-btn tg" onclick="openTelegram()">
-        <div class="w-ch-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="#29a8ea"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.012 9.47c-.148.658-.537.818-1.084.508l-3-2.21-1.448 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.34 14.668l-2.948-.924c-.64-.203-.654-.64.136-.948l11.5-4.432c.533-.194 1.001.13.534.884z"/></svg></div>
-        <div><div class="w-ch-title">Telegram-এ Chat করো</div><div class="w-ch-sub">Fast · Full features · CV upload</div></div>
-        <span style="margin-left:auto;opacity:0.5">→</span>
+        <div class="w-ch-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#29a8ea"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.012 9.47c-.148.658-.537.818-1.084.508l-3-2.21-1.448 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.34 14.668l-2.948-.924c-.64-.203-.654-.64.136-.948l11.5-4.432c.533-.194 1.001.13.534.884z"/></svg>
+        </div>
+        <div>
+          <div class="w-ch-title">Telegram-এ Chat করো</div>
+          <div class="w-ch-sub">Fast · Full features · CV upload</div>
+        </div>
+        <span style="margin-left:auto;font-size:13px;opacity:0.5">→</span>
       </button>
       <button class="w-ch-btn web" onclick="startWebChat()">
         <div class="w-ch-icon">🌐</div>
-        <div><div class="w-ch-title">এখানেই Chat করো</div><div class="w-ch-sub">Telegram ছাড়া · Quick questions</div></div>
-        <span style="margin-left:auto;opacity:0.5">→</span>
+        <div>
+          <div class="w-ch-title">এখানেই Chat করো</div>
+          <div class="w-ch-sub">Telegram ছাড়া · Quick questions</div>
+        </div>
+        <span style="margin-left:auto;font-size:13px;opacity:0.5">→</span>
       </button>
     </div>
   </div>
+
+  <!-- Chat body (hidden until web chat chosen) -->
   <div class="w-body" id="w-body" style="display:none"></div>
   <div class="w-quick" id="w-quick" style="display:none"></div>
   <div class="w-input-area" id="w-input-area" style="display:none">
@@ -577,179 +810,10 @@ footer{background:#0f0c22;padding:32px 48px;display:flex;align-items:center;just
 </div>
 
 <script>
-/* ══ CONFIG — শুধু এই ৩টা বদলাও ══ */
-const SUPABASE_URL = 'https://hokgrewyvhkkomrkgthv.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhva2dyZXd5dmhra29tcmtndGh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwNTk4NTYsImV4cCI6MjA5MzYzNTg1Nn0.pMPPY8IoMAQs0uYUAAd4H6PNtbeUzsN05pymFM_p9tY
-'; 
-const N8N_CV_WEBHOOK = 'https://vibeacademy.cloud/webhook/cv-review';
-const N8N_CHAT_WEBHOOK = 'https://vibeacademy.cloud/webhook/chat-message';
-const N8N_LEAD_WEBHOOK = 'https://vibeacademy.cloud/webhook/chat-lead';
-/* ══════════════════════════════════ */
-
-/* ── Sanu Popup ── */
-let popupDismissed=false;
-setTimeout(()=>{
-  if(popupDismissed)return;
-  document.getElementById('sanu-popup').classList.add('show');
-},2500);
-setTimeout(()=>{
-  if(!popupDismissed)closePopup(null);
-},8000);
-
-function closePopup(e){
-  if(e)e.stopPropagation();
-  popupDismissed=true;
-  const p=document.getElementById('sanu-popup');
-  p.classList.add('hide');
-  setTimeout(()=>p.style.display='none',300);
-}
-function openFromPopup(){
-  closePopup(null);
-  setTimeout(()=>toggleWidget(),150);
-}
-
-/* ── Widget ── */
-let widgetOpen=false,chatStarted=false,chatHistory=[],leadSaved=false,awaitingEmail=false;
-
-function toggleWidget(){
-  widgetOpen=!widgetOpen;
-  const w=document.getElementById('chat-widget');
-  const badge=document.getElementById('fab-badge');
-  if(widgetOpen){
-    w.classList.add('open');
-    document.getElementById('fab-icon').textContent='✕';
-    badge.style.display='none';
-    if(!popupDismissed)closePopup(null);
-  }else{
-    w.classList.remove('open');
-    document.getElementById('fab-icon').textContent='💬';
-  }
-}
-
-function openTelegram(){window.open('https://t.me/CareerBondhuBot','_blank');toggleWidget();}
-
-function startWebChat(){
-  document.getElementById('w-picker').style.display='none';
-  document.getElementById('w-body').style.display='flex';
-  document.getElementById('w-quick').style.display='flex';
-  document.getElementById('w-input-area').style.display='flex';
-  chatStarted=true;
-  addBotMsg('আসসালামুয়ালাইকুম! আমি Sanu — Career Bondhu থেকে বলছি, তোমার AI Career Consultant। CV, job application বা career নিয়ে যেকোনো প্রশ্ন করো!');
-  setQuickReplies(['CV review করতে চাই','ATS কি?','Keywords কীভাবে add করব?','৳99 plan সম্পর্কে জানতে চাই']);
-}
-
-function escHtml(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-
-function addBotMsg(text,isHTML=false){
-  const body=document.getElementById('w-body');
-  const msg=document.createElement('div');msg.className='w-msg bot';
-  const now=new Date();
-  msg.innerHTML='<div class="w-bubble">'+(isHTML?text:escHtml(text))+'</div><div class="w-time">'+now.getHours()+':'+(now.getMinutes()<10?'0':'')+now.getMinutes()+'</div>';
-  body.appendChild(msg);body.scrollTop=body.scrollHeight;
-}
-
-function addUserMsg(text){
-  const body=document.getElementById('w-body');
-  const msg=document.createElement('div');msg.className='w-msg user';
-  const now=new Date();
-  msg.innerHTML='<div class="w-bubble">'+escHtml(text)+'</div><div class="w-time">'+now.getHours()+':'+(now.getMinutes()<10?'0':'')+now.getMinutes()+'</div>';
-  body.appendChild(msg);body.scrollTop=body.scrollHeight;
-}
-
-function showTyping(){
-  const body=document.getElementById('w-body');
-  const t=document.createElement('div');t.className='w-msg bot';t.id='w-typing-ind';
-  t.innerHTML='<div class="w-typing"><span></span><span></span><span></span></div>';
-  body.appendChild(t);body.scrollTop=body.scrollHeight;
-}
-function removeTyping(){const t=document.getElementById('w-typing-ind');if(t)t.remove();}
-
-function setQuickReplies(arr){
-  const qc=document.getElementById('w-quick');qc.innerHTML='';
-  arr.forEach(q=>{const b=document.createElement('button');b.className='w-qr';b.textContent=q;b.onclick=()=>sendMsg(q);qc.appendChild(b);});
-}
-
-async function sendMsg(text){
-  const inp=document.getElementById('w-input');
-  const msg=(text||inp.value).trim();if(!msg)return;
-  inp.value='';document.getElementById('w-quick').innerHTML='';
-  addUserMsg(msg);
-
-  if(awaitingEmail){
-    awaitingEmail=false;
-    if(isValidEmail(msg)){
-      saveLead(msg);
-      addBotMsg('পেয়েছি! তোমার email save হয়েছে। Telegram-এ detailed CV review পেতে join করো!');
-      setTimeout(()=>addBotMsg('<a href="https://t.me/CareerBondhuBot" target="_blank" style="color:var(--purple);font-weight:700">t.me/CareerBondhuBot</a>',true),600);
-      setQuickReplies(['আর কিছু জিজ্ঞেস করব','ধন্যবাদ!']);
-    }else{
-      awaitingEmail=true;
-      addBotMsg('সঠিক email address দাও (যেমন: name@gmail.com)');
-    }
-    return;
-  }
-
-  chatHistory.push({role:'user',content:msg});
-  showTyping();
-
-  try{
-    const res=await fetch(N8N_CHAT_WEBHOOK,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({messages:chatHistory})
-    });
-    const reply=await res.text();
-    removeTyping();
-    if(!reply||reply.trim()===''){
-      addBotMsg('দুঃখিত, একটু সমস্যা হয়েছে। আবার চেষ্টা করো।');
-      return;
-    }
-    chatHistory.push({role:'assistant',content:reply});
-    addBotMsg(reply);
-
-    const uMsgs=chatHistory.filter(m=>m.role==='user').length;
-    if(uMsgs===3&&!leadSaved){
-      setTimeout(()=>{
-        addBotMsg('তোমার email দিলে CV tips এবং job market updates পাঠাতে পারব — free!');
-        const body=document.getElementById('w-body');
-        const form=document.createElement('div');
-        form.className='w-msg bot';form.style.maxWidth='90%';form.style.alignSelf='flex-start';
-        form.innerHTML='<div class="w-email-form"><input id="lead-email-inp" type="email" placeholder="তোমার email দাও..."><button onclick="captureEmail()">Save করো</button></div>';
-        body.appendChild(form);body.scrollTop=body.scrollHeight;
-      },800);
-    }
-
-    if(reply.includes('Telegram')||reply.includes('telegram')){
-      setQuickReplies(['Telegram-এ যাব','আরও প্রশ্ন আছে','Email-এ review চাই']);
-    }else if(reply.toLowerCase().includes('ats')){
-      setQuickReplies(['ATS keywords কীভাবে পাব?','আমার CV check করাব','৳99 plan কী কী দেয়?']);
-    }else{
-      setQuickReplies(['আরও জানতে চাই','CV review করব','Telegram Bot-এ যাব']);
-    }
-  }catch(e){
-    removeTyping();
-    addBotMsg('সংযোগে সমস্যা হচ্ছে। Telegram-এ এসো: @CareerBondhuBot');
-  }
-}
-
-function captureEmail(){
-  const v=document.getElementById('lead-email-inp')?.value?.trim();
-  if(!v||!isValidEmail(v)){alert('সঠিক email দাও।');return;}
-  saveLead(v);leadSaved=true;
-  const form=document.querySelector('.w-email-form');
-  if(form)form.innerHTML='<span style="color:var(--green);font-weight:700">Saved! শুকরিয়া।</span>';
-  addBotMsg('দারুণ! তোমাকে নিয়মিত update পাঠাব।');
-  setQuickReplies(['CV review করব','Job tips চাই','ধন্যবাদ!']);
-}
-
-function saveLead(email){
-  fetch(N8N_LEAD_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'web_chat',timestamp:new Date().toISOString()})}).catch(()=>{});
-}
-
-function isValidEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
-
-/* ── Review Section ── */
+/* ══ REVIEW SECTION ══ */
 let selectedRating=0;
+const SUPABASE_URL='https://hokgrewyvhkkomrkgthv.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhva2dyZXd5dmhra29tcmtndGh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwNTk4NTYsImV4cCI6MjA5MzYzNTg1Nn0.pMPPY8IoMAQs0uYUAAd4H6PNtbeUzsN05pymFM_p9tY';
 
 function setRating(v){
   selectedRating=v;
@@ -758,8 +822,13 @@ function setRating(v){
     s.style.transform=parseInt(s.dataset.v)<=v?'scale(1.15)':'scale(1)';
   });
 }
+
+// hover effect
 document.querySelectorAll('.star').forEach(s=>{
-  s.addEventListener('mouseover',()=>{const v=parseInt(s.dataset.v);document.querySelectorAll('.star').forEach(x=>{x.style.color=parseInt(x.dataset.v)<=v?'#fbbf24':'#d1d5db';});});
+  s.addEventListener('mouseover',()=>{
+    const v=parseInt(s.dataset.v);
+    document.querySelectorAll('.star').forEach(x=>{x.style.color=parseInt(x.dataset.v)<=v?'#fbbf24':'#d1d5db';});
+  });
   s.addEventListener('mouseout',()=>setRating(selectedRating));
 });
 
@@ -770,12 +839,19 @@ async function submitReview_rv(){
   if(!name){alert('নাম দাও।');return;}
   if(!selectedRating){alert('Rating দাও।');return;}
   if(!text){alert('তোমার অভিজ্ঞতা লেখো।');return;}
+
   const btn=document.querySelector('#review-form-card .submit-btn');
   btn.disabled=true;btn.innerHTML='<span>⏳</span> জমা দেওয়া হচ্ছে...';
+
   try{
-    await fetch(SUPABASE_URL+'/rest/v1/reviews',{
+    await fetch(`${SUPABASE_URL}/rest/v1/reviews`,{
       method:'POST',
-      headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Prefer':'return=minimal'},
+      headers:{
+        'Content-Type':'application/json',
+        'apikey':SUPABASE_KEY,
+        'Authorization':'Bearer '+SUPABASE_KEY,
+        'Prefer':'return=minimal'
+      },
       body:JSON.stringify({name,institution:inst,rating:selectedRating,review_text:text,created_at:new Date().toISOString()})
     });
     document.getElementById('review-form-card').style.display='none';
@@ -789,30 +865,37 @@ async function submitReview_rv(){
 
 async function loadReviews(){
   try{
-    const res=await fetch(SUPABASE_URL+'/rest/v1/reviews?select=*&order=created_at.desc&limit=6',{
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/reviews?select=*&order=created_at.desc&limit=6`,{
       headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY}
     });
     const data=await res.json();
     if(!data||!data.length)return;
-    document.getElementById('reviews-display').innerHTML=
-      '<h3 style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--dark);margin-bottom:20px;text-align:center">সবার অভিজ্ঞতা</h3>'+
-      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">'+
-      data.map(r=>
-        '<div style="background:var(--white);border-radius:16px;padding:20px;border:1px solid rgba(196,181,253,0.25);box-shadow:0 4px 16px rgba(109,40,217,0.05)">'+
-        '<div style="color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:10px">'+'★'.repeat(r.rating)+'☆'.repeat(5-r.rating)+'</div>'+
-        '<p style="font-size:13px;color:var(--dark);line-height:1.65;font-style:italic;margin-bottom:14px">"'+escHtml(r.review_text)+'"</p>'+
-        '<div style="display:flex;align-items:center;gap:10px">'+
-        '<div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--purple-l));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0">'+(r.name||'?')[0].toUpperCase()+'</div>'+
-        '<div><div style="font-size:13px;font-weight:700;color:var(--dark)">'+escHtml(r.name)+'</div>'+
-        '<div style="font-size:11px;color:var(--muted);font-family:var(--mono)">'+(r.institution||'Career Bondhu User')+'</div></div></div></div>'
-      ).join('')+'</div>';
+    const el=document.getElementById('reviews-display');
+    el.innerHTML=`<h3 style="font-family:var(--serif);font-size:20px;font-weight:700;color:var(--dark);margin-bottom:20px;text-align:center">সবার অভিজ্ঞতা</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
+      ${data.map(r=>`
+        <div style="background:var(--white);border-radius:16px;padding:20px;border:1px solid rgba(196,181,253,0.25);box-shadow:0 4px 16px rgba(109,40,217,0.05)">
+          <div style="color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:10px">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+          <p style="font-size:13px;color:var(--dark);line-height:1.65;font-style:italic;margin-bottom:14px">"${escHtml(r.review_text)}"</p>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--purple-l));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0">${(r.name||'?')[0].toUpperCase()}</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--dark)">${escHtml(r.name)}</div>
+              <div style="font-size:11px;color:var(--muted);font-family:var(--mono)">${r.institution||'Career Bondhu User'}</div>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
   }catch(e){}
 }
+
+// load existing reviews on page load
 loadReviews();
 
-/* ── CV Upload ── */
+/* ══ CV UPLOAD ══ */
 function handleFile(input){
-  const f=input.files[0];if(!f)return;
+  const f=input.files[0]; if(!f)return;
   if(f.size>5*1024*1024){alert('ফাইল সাইজ ৫MB-এর বেশি হবে না।');input.value='';return;}
   const n=document.getElementById('file-name-display');
   n.textContent='📎 '+f.name;n.style.display='block';
@@ -826,8 +909,7 @@ dz.addEventListener('drop',e=>{
   const f=e.dataTransfer.files[0];
   if(f){document.getElementById('cv-file').files=e.dataTransfer.files;handleFile(document.getElementById('cv-file'));}
 });
-
-async function submitCVReview(){
+async function submitReview(){
   const name=document.getElementById('inp-name').value.trim();
   const email=document.getElementById('inp-email').value.trim();
   const file=document.getElementById('cv-file').files[0];
@@ -848,7 +930,7 @@ async function submitCVReview(){
     fd.append('job',document.getElementById('inp-job').value);
     fd.append('phone',document.getElementById('inp-phone').value);
     fd.append('cv',file);
-    await fetch(N8N_CV_WEBHOOK,{method:'POST',body:fd});
+    await fetch('https://vibeacademy.cloud/webhook/cv-review',{method:'POST',body:fd});
     clearInterval(t);fill.style.width='100%';lbl.textContent='Done!';
     await new Promise(r=>setTimeout(r,500));
     document.getElementById('upload-form-wrap').style.display='none';
@@ -860,7 +942,7 @@ async function submitCVReview(){
   }
 }
 
-/* ── Scroll Reveal ── */
+/* ══ SCROLL REVEAL ══ */
 const reveals=document.querySelectorAll('.reveal');
 const obs=new IntersectionObserver((entries)=>{
   entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});
@@ -869,6 +951,206 @@ reveals.forEach(el=>obs.observe(el));
 window.addEventListener('scroll',()=>{
   document.querySelector('nav').style.boxShadow=window.scrollY>20?'0 4px 20px rgba(109,40,217,0.1)':'none';
 });
+
+/* ══ CHAT WIDGET ══ */
+let widgetOpen=false;
+let chatStarted=false;
+let chatHistory=[];
+let awaitingEmail=false;
+let leadSaved=false;
+
+function toggleWidget(){
+  widgetOpen=!widgetOpen;
+  const w=document.getElementById('chat-widget');
+  const fab=document.getElementById('chat-fab');
+  const badge=fab.querySelector('.fab-badge');
+  if(widgetOpen){
+    w.classList.add('open');
+    document.getElementById('fab-icon').textContent='✕';
+    if(badge)badge.style.display='none';
+  }else{
+    w.classList.remove('open');
+    document.getElementById('fab-icon').textContent='💬';
+  }
+}
+
+function openTelegram(){
+  window.open('https://t.me/CareerBondhuBot','_blank');
+  toggleWidget();
+}
+
+function startWebChat(){
+  document.getElementById('w-picker').style.display='none';
+  document.getElementById('w-body').style.display='flex';
+  document.getElementById('w-quick').style.display='flex';
+  document.getElementById('w-input-area').style.display='flex';
+  chatStarted=true;
+  // greeting
+  addBotMsg('আসসালামুয়ালাইকুম! 👋 আমি Sanu — Career Bondhu থেকে বলছি, তোমার AI Career Consultant। CV, job application বা career নিয়ে যেকোনো প্রশ্ন করো!');
+  setQuickReplies(['CV review করতে চাই','ATS কি?','Keywords কীভাবে add করব?','৳99 plan সম্পর্কে জানতে চাই']);
+}
+
+function addBotMsg(text,isHTML=false){
+  const body=document.getElementById('w-body');
+  const msg=document.createElement('div');
+  msg.className='w-msg bot';
+  const now=new Date();
+  const time=now.getHours()+':'+(now.getMinutes()<10?'0':'')+now.getMinutes();
+  msg.innerHTML=`<div class="w-bubble">${isHTML?text:escHtml(text)}</div><div class="w-time">${time}</div>`;
+  body.appendChild(msg);
+  body.scrollTop=body.scrollHeight;
+}
+
+function addUserMsg(text){
+  const body=document.getElementById('w-body');
+  const msg=document.createElement('div');
+  msg.className='w-msg user';
+  const now=new Date();
+  const time=now.getHours()+':'+(now.getMinutes()<10?'0':'')+now.getMinutes();
+  msg.innerHTML=`<div class="w-bubble">${escHtml(text)}</div><div class="w-time">${time}</div>`;
+  body.appendChild(msg);
+  body.scrollTop=body.scrollHeight;
+}
+
+function showTyping(){
+  const body=document.getElementById('w-body');
+  const t=document.createElement('div');
+  t.className='w-msg bot';t.id='w-typing-ind';
+  t.innerHTML='<div class="w-typing"><span></span><span></span><span></span></div>';
+  body.appendChild(t);body.scrollTop=body.scrollHeight;
+  return t;
+}
+
+function removeTyping(){
+  const t=document.getElementById('w-typing-ind');
+  if(t)t.remove();
+}
+
+function setQuickReplies(arr){
+  const qc=document.getElementById('w-quick');
+  qc.innerHTML='';
+  arr.forEach(q=>{
+    const b=document.createElement('button');
+    b.className='w-qr';b.textContent=q;
+    b.onclick=()=>sendMsg(q);
+    qc.appendChild(b);
+  });
+}
+
+function escHtml(t){
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function sendMsg(text){
+  const inp=document.getElementById('w-input');
+  const msg=(text||inp.value).trim();
+  if(!msg)return;
+  inp.value='';
+  document.getElementById('w-quick').innerHTML='';
+  addUserMsg(msg);
+
+  // email capture flow
+  if(awaitingEmail){
+    awaitingEmail=false;
+    if(isValidEmail(msg)){
+      saveLead(msg);
+      addBotMsg('পেয়েছি! ✅ তোমার email save হয়েছে। আমরা শীঘ্রই যোগাযোগ করব। Telegram-এ detailed CV review পেতে এখনই join করো!');
+      setTimeout(()=>{
+        addBotMsg('👉 <a href="https://t.me/CareerBondhuBot" target="_blank" style="color:var(--purple);font-weight:700">t.me/CareerBondhuBot</a>',true);
+      },600);
+      setQuickReplies(['আর কিছু জিজ্ঞেস করব','ধন্যবাদ!']);
+    }else{
+      awaitingEmail=true;
+      addBotMsg('সঠিক email address দাও (যেমন: name@gmail.com)');
+    }
+    return;
+  }
+
+  chatHistory.push({role:'user',content:msg});
+  const typing=showTyping();
+
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system:`তুমি Sanu — Career Bondhu-র AI Career Consultant। তুমি বাংলাদেশের students এবং fresh graduates-দের CV এবং career নিয়ে সাহায্য করো।
+
+তোমার পরিচয়: আমি Sanu, Career Bondhu থেকে বলছি — তোমার AI Career Consultant।
+তুমি বাংলা এবং ইংরেজি দুটো ভাষায় কথা বলতে পারো। User যে ভাষায় কথা বলে তুমিও সেই ভাষায় উত্তর দাও।
+
+Expertise: Bangladesh job market (Banking, NGO, MNC, Corporate), ATS optimization, CV writing, job application strategy।
+
+Rules:
+- সংক্ষিপ্ত কিন্তু helpful উত্তর দাও (3-5 sentences)
+- CV upload বা detailed review চাইলে Telegram @CareerBondhuBot-এ redirect করো
+- ৳99 paid plan naturally mention করো যখন প্রাসঙ্গিক
+- নিজেকে সবসময় "Sanu" হিসেবে introduce করো
+- শেষে একটা relevant follow-up question করো`,
+        messages:chatHistory
+      })
+    });
+    const data=await res.json();
+    removeTyping();
+    const reply=data.content?.[0]?.text||'দুঃখিত, একটু সমস্যা হয়েছে। আবার চেষ্টা করো।';
+    chatHistory.push({role:'assistant',content:reply});
+    addBotMsg(reply);
+
+    // After 3 exchanges, offer email capture
+    const userMsgs=chatHistory.filter(m=>m.role==='user').length;
+    if(userMsgs===3&&!leadSaved){
+      setTimeout(()=>{
+        addBotMsg('📧 তোমার email দিলে আমি CV tips এবং job market updates পাঠাতে পারব — free!');
+        const body=document.getElementById('w-body');
+        const form=document.createElement('div');
+        form.className='w-msg bot';form.style.maxWidth='90%';form.style.alignSelf='flex-start';
+        form.innerHTML=`<div class="w-email-form">
+          <input id="lead-email-inp" type="email" placeholder="তোমার email দাও...">
+          <button onclick="captureEmail()">Save করো →</button>
+        </div>`;
+        body.appendChild(form);body.scrollTop=body.scrollHeight;
+      },800);
+    }
+
+    // Dynamic quick replies based on context
+    if(reply.toLowerCase().includes('telegram')||reply.toLowerCase().includes('cv upload')){
+      setQuickReplies(['Telegram-এ যাব','আরও প্রশ্ন আছে','Email-এ review চাই']);
+    }else if(reply.toLowerCase().includes('ats')){
+      setQuickReplies(['ATS keywords কীভাবে পাব?','আমার CV check করাব','৳99 plan কী কী দেয়?']);
+    }else{
+      setQuickReplies(['আরও জানতে চাই','CV review করব','Telegram Bot-এ যাব']);
+    }
+
+  }catch(e){
+    removeTyping();
+    addBotMsg('সংযোগে সমস্যা হচ্ছে। Telegram-এ এসো: @CareerBondhuBot 🙏');
+  }
+}
+
+function captureEmail(){
+  const v=document.getElementById('lead-email-inp')?.value?.trim();
+  if(!v||!isValidEmail(v)){
+    alert('সঠিক email দাও।');return;
+  }
+  saveLead(v);leadSaved=true;
+  const form=document.querySelector('.w-email-form');
+  if(form){form.innerHTML='<span style="color:var(--green);font-weight:700">✅ Saved! শুকরিয়া।</span>';}
+  addBotMsg('দারুণ! তোমাকে নিয়মিত update পাঠাব। এখন আর কীভাবে সাহায্য করতে পারি?');
+  setQuickReplies(['CV review করব','Job tips চাই','ধন্যবাদ!']);
+}
+
+function saveLead(email){
+  leadSaved=true;
+  fetch('https://vibeacademy.cloud/webhook/chat-lead',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({email,source:'web_chat',timestamp:new Date().toISOString()})
+  }).catch(()=>{});
+}
+
+function isValidEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
 </script>
 </body>
 </html>
