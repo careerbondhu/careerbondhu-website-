@@ -705,7 +705,7 @@ async function sendMsg(text){
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({messages:chatHistory})
     });
-    const reply=await res.text();
+    const reply = (await res.text()).replace(/^=+/, '').trim();
     removeTyping();
     if(!reply||reply.trim()===''){
       addBotMsg('দুঃখিত, একটু সমস্যা হয়েছে। আবার চেষ্টা করো।');
@@ -735,7 +735,7 @@ async function sendMsg(text){
     }
   }catch(e){
     removeTyping();
-    addBotMsg('সংযোগে সমস্যা হচ্ছে। Telegram-এ এসো: @CareerBondhuBot');
+    addBotMsg('সংযোগে সমস্যা হচ্ছে। Telegram-এ এসো: @CareerBondhuBot অথবা মেসেজ করো আমাদের ফেসবুক পেইজেঃ facebook.com/careerbondhu.bd');
   }
 }
 
