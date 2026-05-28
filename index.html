@@ -711,8 +711,34 @@ async function sendMsg(text){
       addBotMsg('দুঃখিত, একটু সমস্যা হয়েছে। আবার চেষ্টা করো।');
       return;
     }
-    chatHistory.push({role:'assistant',content:reply});
+   chatHistory.push({role:'assistant',content:reply});
     addBotMsg(reply);
+
+    // CV review buttons — show when reply mentions review/CV/Telegram
+    const lower = reply.toLowerCase();
+    if((lower.includes('telegram') || lower.includes('review') || lower.includes('cv')) && !lower.includes('careerbondhu.netlify')){
+      setTimeout(()=>{
+        const body=document.getElementById('w-body');
+        const btnWrap=document.createElement('div');
+        btnWrap.className='w-msg bot';
+        btnWrap.style.alignSelf='flex-start';
+        btnWrap.style.maxWidth='100%';
+        btnWrap.innerHTML=`
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+            <a href="https://t.me/CareerBondhuBot" target="_blank"
+              style="display:inline-flex;align-items:center;gap:7px;background:#29a8ea;color:#fff;padding:9px 16px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 3px 10px rgba(41,168,234,0.3)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.012 9.47c-.148.658-.537.818-1.084.508l-3-2.21-1.448 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.34 14.668l-2.948-.924c-.64-.203-.654-.64.136-.948l11.5-4.432c.533-.194 1.001.13.534.884z"/></svg>
+              Telegram-এ Review নাও
+            </a>
+            <a href="#cv-review" onclick="toggleWidget()"
+              style="display:inline-flex;align-items:center;gap:7px;background:var(--purple);color:#fff;padding:9px 16px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 3px 10px rgba(109,40,217,0.3)">
+              📧 Email-এ Review নাও
+            </a>
+          </div>`;
+        body.appendChild(btnWrap);
+        body.scrollTop=body.scrollHeight;
+      },600);
+    }
 
     const uMsgs=chatHistory.filter(m=>m.role==='user').length;
     if(uMsgs===3&&!leadSaved){
